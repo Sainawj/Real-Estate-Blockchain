@@ -3,12 +3,12 @@ A decentralized system for real estate transactions. Features user authenticatio
 
 The MVP include basic functionalities for property listing, buyer-seller agreements via smart contracts, and storage of property records on a distributed database.
 ## Core Features:
-> User Registration and Authentication
-> Property Listing Management
-> Smart Contract Deployment for Transactions
-> Immutable Record Storage
-> User Dashboard
-> Transaction History
+>> User Registration and Authentication
+>> Property Listing Management
+>> Smart Contract Deployment for Transactions
+>> Immutable Record Storage
+>> User Dashboard
+>> Transaction History
 
 ## Architecture Overview:
 The architecture for the MVP consists of three primary layers:
