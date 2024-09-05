@@ -1,34 +1,20 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
-from flask_login import LoginManager
-from web3 import Web3
+from flask_pymongo import PyMongo
+from config import Config
 
-db = SQLAlchemy()
-bcrypt = Bcrypt()
-login_manager = LoginManager()
+mongo = PyMongo()
 
-def create_app():
+def create_app(config_class=Config):
     app = Flask(__name__)
-    app.config.from_object('config.Config')
-
-    db.init_app(app)
-    bcrypt.init_app(app)
-    login_manager.init_app(app)
-
+    app.config.from_object(config_class)
+    
+    mongo.init_app(app)
+    
     with app.app_context():
-        from . import routes
-        db.create_all()
-
+        from .routes import dashboard_routes, auth_routes, property_routes, contract_routes
+        app.register_blueprint(dashboard_routes.dashboard_bp)
+        app.register_blueprint(auth_routes.auth_bp)
+        app.register_blueprint(property_routes.property_bp)
+        app.register_blueprint(contract_routes.contract_bp)
+        
     return app
-
-# Connect to the local blockchain (Ganache)
-web3 = Web3(Web3.HTTPProvider('http://127.0.0.1:8545'))
-
-# Load the smart contract
-with open('path/to/compiled/PropertyContract.json') as f:
-    contract_json = json.load(f)
-    contract_abi = contract_json['abi']
-    contract_address = contract_json['networks']['5777']['address']
-
-property_contract = web3.eth.contract(address=contract_address, abi=contract_abi)
