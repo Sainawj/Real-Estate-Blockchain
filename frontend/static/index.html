@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#">About us</a>
+        <a href="#">My Profile</a>
+        <a href="#">Property Listings</a>
+        <a href="#">Share/List Property</a>
+        <a href="#">Log out</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <input type="text" placeholder="Search Property" class="search-input">
+            <select class="filter-location">
+                <option value="">Location</option>
+                <option value="Nairobi">Nairobi</option>
+                <option value="Nakuru">Nakuru</option>
+                <option value="Eldoret">Eldoret</option>
+                <option value="Mombasa">Mombasa</option>
+                <option value="Kisumu">Kisumu</option>
+            </select>
+            <select class="filter-price">
+                <option value="">Price Range</option>
+                <option value="100000-500000">Ksh 100,000 - 500,000</option>
+                <option value="500000-1000000">Ksh 500,000 - 1,000,000</option>
+                <option value="1000000-5000000">Ksh 1,000,000 - 5,000,000</option>
+                <option value="5000000+">Above Ksh 5,000,000</option>
+            </select>
+        </div>
+
+        <!-- User Information and Dashboard -->
+        <div class="user-dashboard">
+            <!-- User Information -->
+            <div class="user-info">
+                <div class="user-image">
+                    <img src="images/user-image.png" alt="User Image">
+                </div>
+                <h3>User Information</h3>
+                <p>Full Names: John Doe</p>
+                <p>Location: Nairobi</p>
+                <p>Email Address: john.doe@example.com</p>
+                <p>Phone: 0712-345-678</p>
+                <p>Properties Owned: 3</p>
+                <p>Properties Leased: 1</p>
+
+                <!-- Expenditure vs Income Chart (now inside User Information section) -->
+                <div class="expenditure-income-chart">
+                    <h4>Expenditure vs Income</h4>
+                    <canvas id="expenditureIncomeChart" width="150" height="150"></canvas>
+                </div>
+            </div>
+
+            <!-- Dashboard with Transaction History and Wallet Expenditure -->
+            <div class="dashboard">
+                <div class="transaction-sample">
+                    <h3>Recent Transactions</h3>
+                    <table>
+                        <tr>
+                            <th>Tran Date</th>
+                            <th>Amount (Ksh)</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>1/1/2024</td>
+                            <td>25,000.00</td>
+                            <td>Rent Payment</td>
+                        </tr>
+                        <tr>
+                            <td>2/1/2024</td>
+                            <td>20,000.00</td>
+                            <td>Property Tax</td>
+                        </tr>
+                        <tr>
+                            <td>3/1/2024</td>
+                            <td>18,000.00</td>
+                            <td>Maintenance Fee</td>
+                        </tr>
+                        <!-- More rows -->
+                    </table>
+                </div>
+
+                <div class="wallet-expenditure">
+                    <h3>Wallet Expenditure (Last 6 Months)</h3>
+                    <canvas id="walletChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="dashboard">
+            <div class="transaction-sample">
+                <h3>Blockchain Transaction History</h3>
+                <table>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Timestamp</th>
+                        <th>Transaction Hash</th>
+                        <th>Location</th>
+                        <th>Amount (Ksh)</th>
+                    </tr>
+                    <tr>
+                        <td>TX-001</td>
+                        <td>2024-09-05 14:22:01</td>
+                        <td>0x72b0c42ef...22da8e0d</td>
+                        <td>Nairobi</td>
+                        <td>10,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>TX-002</td>
+                        <td>2024-09-05 14:25:45</td>
+                        <td>0xa7f5a783d...77fe45cc</td>
+                        <td>Mombasa</td>
+                        <td>8,500,000</td>
+                    </tr>
+                    <tr>
+                        <td>TX-003</td>
+                        <td>2024-09-05 14:30:12</td>
+                        <td>0x3a5e9f9bb...a5e9c42e</td>
+                        <td>Nakuru</td>
+                        <td>6,750,000</td>
+                    </tr>
+                    <!-- More rows -->
+                </table>
+            </div>
+        </div>
+
+        <!-- Properties on Watch List with Cost, Location, and Rating -->
+        <div class="watch-list"><br>
+            <h3><center>My Watch List</center></h3>
+            <div class="properties">
+                <div class="property">
+                    <img src="images/property-1.jpg" alt="Property 1">
+                    <p>Cost: Ksh 10,000,000</p>
+                    <p>Location: Nairobi</p>
+                    <p>Rating: 4.5/5</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="rate-btn">Rate</button>
+
+                </div>
+                <div class="property">
+                    <img src="images/property-2.jpg" alt="Property 2">
+                    <p>Cost: Ksh 8,500,000</p>
+                    <p>Location: Mombasa</p>
+                    <p>Rating: 4.0/5</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="rate-btn">Rate</button>
+                </div>
+                <div class="property">
+                    <img src="images/property-3.jpg" alt="Property 3">
+                    <p>Cost: Ksh 10,500,000</p>
+                    <p>Location: Nairobi</p>
+                    <p>Rating: 3.9/5</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="rate-btn">Rate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/charts.js"></script>
+</body>
+</html>
